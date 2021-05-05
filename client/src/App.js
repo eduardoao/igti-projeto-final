@@ -42,10 +42,10 @@ export default function App() {
               const textDescription = item.description.toLowerCase();
               return textDescription.indexOf(filterText.toLowerCase()) >= 0;
             })
-            //.sort((a, b) => a.day - b.day)
+            
         : Object.assign(
             [],
-            transactions//.sort((a, b) => a.day - b.day)
+            transactions
           );
     setListFilter(newList);
   }, [transactions, filterText]);
@@ -116,11 +116,8 @@ export default function App() {
             <div className="navbar-home">
               <div className="content-header">
                 <strong className="font-xlarge">
-                  Controle Financeiro Pessoal
-                </strong>
-                <span className="font-medium">
-                  Bootcamp Full Stack - Desafio Final
-                </span>
+                  Controle Financeiro Pessoal - Versão 21
+                </strong>               
               </div>
             </div>
           </nav>
