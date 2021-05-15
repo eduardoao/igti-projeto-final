@@ -2,6 +2,7 @@
 const express = require('express');
 
 const userRouter = express.Router();
+const loginRouter = express.Router();
 
 const {
   register,
@@ -12,7 +13,10 @@ const {
 userRouter
 .route('/') 
 .post(register)
+
+loginRouter
+.route('/')
 .post(login); 
 
 
-module.exports =  userRouter;
+module.exports =  {userRouter, loginRouter};

@@ -1,18 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-/**
- * Importação do Materialize CSS
- */
-import 'materialize-css/dist/css/materialize.min.css';
+import { Auth0Provider } from '@auth0/auth0-react';
 
+
+import 'materialize-css/dist/css/materialize.min.css';
 import './index.css';
 
 import App from './App';
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_ID;
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Auth0Provider 
+    domain={domain} 
+    clientId={clientId}
+    redirectUri={window.location.origin}>
     <App />
-  </React.StrictMode>,
+  </Auth0Provider>,
   document.getElementById('root')
 );

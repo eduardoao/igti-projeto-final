@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const transactionRouter = require('./routes/transactionRouter');
-const userRouter = require('./routes/userRouter');
+const {userRouter, loginRouter} = require('./routes/userRouter');
 const path = require('path');
 const dotenv = require('dotenv');
 
@@ -35,7 +35,9 @@ app.get('/api/', (_, response) => {
  * Rotas principais do app
  */
 app.use('/api/transaction', transactionRouter);
-app.use('/api/users', userRouter);
+app.use('/api/register', userRouter);
+app.use('/api/login', loginRouter);
+
 
 /**
  * Conexão ao Banco de Dados

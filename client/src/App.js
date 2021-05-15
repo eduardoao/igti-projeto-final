@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import TransactionList from './components/TransactionList';
 import * as api from './api/apiService';
 import Overview from './components/Overview';
-import M from 'materialize-css';
+import Materialize from 'materialize-css';
 import Modal from './components/TransactionModal';
+import { LoginButton } from './components/Auth/LoginButton';
 
 export default function App() {
   const [filterText, setFilterText] = useState('');
@@ -21,13 +22,13 @@ export default function App() {
   );
 
   React.useEffect(() => {
-    M.AutoInit();
+    Materialize.AutoInit();
   }, []);
 
   React.useEffect(() => {
     const getTransactionsList = async () => {
       const newList = await api.getPeriodTransaction(period);
-      setTransactions(newList);//.transactions);
+      setTransactions(newList);
     };
     getTransactionsList();
     setIsPreloader(false);
@@ -110,6 +111,7 @@ export default function App() {
 
   return (
     <>
+     <LoginButton></LoginButton>
       <header>
         <div className="navbar-fixed">
           <nav className="teal">
